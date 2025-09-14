@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft MD3 - Standalone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="md3-theme">
+    <div id="app-container">
+        <div id="initial-screen">
+            <img src="logo.png" alt="Logo BSL" class="main-logo">
+            <h1>Sistema de Draft MD3</h1>
+            <p>Uma ferramenta standalone para a montagem das equipes.</p>
+            <button id="btn-start-md3-draft" class="initial-button">🚀 Iniciar Draft MD3</button>
+        </div>
+
+        <div id="captain-setup-container" class="hidden">
+            <h2>Montagem dos Times e Capitães</h2>
+            <div id="draft-stats-container">
+                <div id="stats-display"></div>
+                <button id="btn-refresh-stats" title="Atualizar Estatísticas">🔄</button>
+            </div>
+            <div class="setup-controls">
+                <label for="numero-times">Número de Times:</label>
+                <input type="number" id="numero-times" value="2" min="2">
+                <button id="btn-confirmar-times">Confirmar Times</button>
+            </div>
+            <div class="setup-controls hidden" id="captain-actions-controls">
+                 <button id="btn-autofill-captains">Preencher Capitães</button>
+            </div>
+            <div class="captain-selection-area">
+                <div id="lista-jogadores-geral">
+                    <h3>Jogadores para Seleção (Capitães)</h3>
+                    <div id="captain-filters"></div>
+                    <div class="player-list-wrapper"><div class="player-list"></div></div>
+                </div>
+                <div id="area-capitaes">
+                    <h3>Capitães dos Times</h3>
+                    <div class="captain-slots-wrapper"><div class="captain-slots"></div></div>
+                </div>
+            </div>
+            <button id="btn-iniciar-sorteio" class="hidden">▶️ Sortear Ordem do Draft</button>
+        </div>
+        
+        <div id="lottery-container" class="hidden">
+            <h2>Sorteando a Ordem das Escolhas...</h2>
+            <div id="lottery-results"></div>
+        </div>
+
+        <div id="draft-container" class="hidden">
+            <div id="draft-order-bar" class="hidden">
+                <div id="draft-order-content"></div>
+                <button id="toggle-order-btn">Esconder</button>
+            </div>
+            <header>
+                <div id="info-turno"></div>
+                 <div id="controles-gerais">
+                    <button id="btn-ver-times">Ver Times</button>
+                    <button id="btn-ver-jogadores" class="hidden">Ver Jogadores</button>
+                    <button id="btn-atualizar-lista">🔄 Atualizar</button>
+                    <button id="btn-reverter-escolha">↩️ Voltar</button>
+                    <button id="btn-pular-escolha">⏭️ Pular</button>
+                    <button id="btn-resetar-draft">🚨 Resetar</button>
+                    <button id="btn-finalizar-draft">🏁 Finalizar Draft</button> 
+                </div>
+            </header>
+            <main id="draft-main">
+                <div id="area-escolha">
+                    <div id="filtros-posicao"></div>
+                    <div id="lista-disponiveis"></div>
+                </div>
+                <div id="area-visualizacao-times" class="hidden">
+                    <div id="player-placement-info" class="hidden"></div>
+                    <div id="area-times"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="md3-registration-modal-overlay" class="hidden">
+        <div class="player-registration-modal">
+            <h3 id="md3-registration-modal-title">Registrar Jogadores - MD3</h3>
+            <p>Cole a lista completa de jogadores abaixo. O sistema irá analisar e cadastrar localmente.</p>
+            <div class="registration-group">
+                <textarea id="md3-player-list-input" placeholder="CAP1: Marcus7170&#10;GK1: Marcus7170&#10;ZAG1: MarcelloVieira&#10;ST1: iStraw&#10;ALA1: *LmsMrGamer" style="min-height: 300px;"></textarea>
+            </div>
+            <div class="player-registration-modal-buttons">
+                <button id="md3-register-cancel-btn">Cancelar</button>
+                <button id="md3-register-submit-btn">Analisar e Iniciar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div id="qr-code-container">
+            <img src="qr_code.png" alt="QR Code para doação">
+            <p>Apoie o desenvolvimento</p>
+        </div>
+        <div class="footer-credits">
+            Desenvolvido com 💙 por <span class="signature">Marcus7170</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
